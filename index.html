@@ -731,6 +731,7 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 .gbtn.delc{background:#c62828;border-color:#c62828;color:#fff}.gbtn.delc:hover{background:#a91f1f}
 .polsec{margin-top:22px}.poltypes{display:flex;flex-wrap:wrap;gap:0 12px;margin-top:2px}.polsec .pck{min-height:26px;font-size:13px}.polact{white-space:nowrap}.polact .pbtn{margin:2px 4px 2px 0}.polup{display:inline-flex;align-items:center;cursor:pointer}.polfile{display:inline-flex;gap:4px;align-items:center;font-size:13px}
 .gp-mbox.polprev{max-width:820px;width:calc(100% - 32px)}.polprev-b{max-height:60vh;overflow:auto;border:1px solid var(--gl);border-radius:4px;padding:12px 16px;margin:0 0 14px;line-height:1.5}.polprev-b .pdfdoc{width:100%;height:55vh}
+.au-f{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:8px}.au-f label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--gm);font-weight:500}.au-f .au-q{flex:1;min-width:200px}.au-f .au-q input{width:100%;box-sizing:border-box}.au-n{margin:6px 0 8px}
 </style>
 <style>.split-both .gpapp{height:calc(100vh - 110px);min-height:640px}</style><header class="topbar"><div class="topbar-in wrap">
   <div class="brand"><span class="brand-logo"><svg width="32" height="37" viewBox="0 0 40 46" aria-hidden="true"><defs><linearGradient id="gpS2" x1="0" x2="1" y1="0" y2="0"><stop offset=".5" stop-color="#3865f7"/><stop offset=".5" stop-color="#1a2bc3"/></linearGradient><clipPath id="gpC2"><path d="M20 5.2l14.3 3.9v11.2c0 9.6-6.3 16-14.3 20-8-4-14.3-10.4-14.3-20V9.1z"/></clipPath></defs><path d="M20 1l18 5v14.4c0 12-8 20-18 24.6C10 40.4 2 32.4 2 20.4V6z" fill="url(#gpS2)"/><path d="M20 5.2l14.3 3.9v11.2c0 9.6-6.3 16-14.3 20-8-4-14.3-10.4-14.3-20V9.1z" fill="#fff"/><g clip-path="url(#gpC2)"><path d="M6 42c1-8.5 6.5-12 14-12.5 7.5.5 13 4 14 12.5z" fill="#253053"/><path d="M16.3 30l3.7 4.6 3.7-4.6" fill="none" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/><path d="M20 34.6V42" stroke="#fff" stroke-width="1.1"/><rect x="25.4" y="33.6" width="2.4" height="2.4" rx=".4" fill="#9aa0ad"/><path d="M17.8 25.2h4.4v5h-4.4z" fill="#fff" stroke="#253053" stroke-width=".9"/><ellipse cx="20" cy="21.4" rx="4.7" ry="5.3" fill="#fff" stroke="#253053" stroke-width="1"/><path d="M18.6 24.1h2.8" stroke="#4b515f" stroke-width=".6" stroke-linecap="round"/><path d="M17.6 20.9h1.3M21.1 20.9h1.3" stroke="#4b515f" stroke-width=".7" stroke-linecap="round"/><path d="M13.6 17.3c-.4-4.6 3-6.6 6.4-6.6s6.8 2 6.4 6.6z" fill="#253053"/><rect x="14.4" y="16.6" width="11.2" height="1.8" fill="#151d36"/><path d="M14.6 18.3q5.4 2.6 10.8 0v1q-5.4 2.6-10.8 0z" fill="#151d36"/><rect x="19.2" y="12.4" width="1.6" height="2.4" rx=".3" fill="#3865f7"/></g></svg></span><div><b>GuardsPro Visitor Kiosk</b><span>iPad prototype · v1.0</span></div></div>
@@ -762,10 +763,10 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
     </div>
     <aside class="side">
       <div class="card"><h3>Flow map</h3><p class="hint">Every stage and screen, start to end. <b>Click any screen to open it</b> with sample data. <b>Blue</b> = running now, <b>green</b> = done in this session.</p><div class="flowmap" id="flowmap"></div></div>
-      <div class="card"><h3>Kiosk operator <span class="demo-tag">DEMO</span></h3><div id="oppanel"></div><p class="hint" style="margin-top:8px">Your account: <code>kapil.m@teamsworks.in</code> / <code>Kapil@2026</code> (6 Post Sites). Other demo accounts (password <code>Demo@1234</code>): <code>alex.morgan@northstar.example</code> 6 Post Sites · <code>sam.taylor@northstar.example</code> loading fails once, then 2 sites · <code>jordan.lee@northstar.example</code> no Post Sites. Simulated; not real credentials.</p></div>
+      <div class="card"><h3>Kiosk operator <span class="demo-tag">DEMO</span></h3><div id="oppanel"></div></div>
       <div class="card"><h3>Start a journey</h3><p class="hint">Each button resets the kiosk and starts at that journey's entry point.</p><div class="jgrid" id="journeys"></div></div>
-      <div class="card"><h3>Simulate <span class="demo-tag">DEMO</span></h3><p class="hint" id="ctx-hint">Outcomes for the current screen.</p><div class="btnrow" id="ctx"></div></div>
-      <div class="card"><h3>Emails &amp; notifications <span id="outbox-n"></span> <span class="demo-tag">MOCK</span></h3><p class="hint">The visitor gets the badge by email. Host, reception and security get notifications only. Click a message to preview it.</p><ul class="outbox" id="outbox"></ul></div>
+      <div class="card" style="display:none" aria-hidden="true"><h3>Simulate <span class="demo-tag">DEMO</span></h3><p class="hint" id="ctx-hint">Outcomes for the current screen.</p><div class="btnrow" id="ctx"></div></div>
+      <div class="card" style="display:none" aria-hidden="true"><h3>Emails &amp; notifications <span id="outbox-n"></span> <span class="demo-tag">MOCK</span></h3><p class="hint">The visitor gets the badge by email. Host, reception and security get notifications only. Click a message to preview it.</p><ul class="outbox" id="outbox"></ul></div>
       <div class="card"><h3>Exception scenarios</h3><p class="hint">Jumps straight into each case.</p><div class="btnrow" id="exc"></div></div>
       <div class="card"><h3>Services &amp; devices <span class="demo-tag">MOCK</span></h3>
         <div class="cfg">
@@ -775,9 +776,9 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
           <div class="row"><span>Server security check</span><select id="sim-sec"><option value="clear">Clear</option><option value="review">Needs review</option></select></div>
           <div class="row"><span>Config sync</span><select id="sim-sync"><option value="ok">Succeeds</option><option value="fail">Fails on device</option></select></div>
         </div></div>
-      <div class="card"><h3>Language testing</h3><p class="hint">Enabled languages are set per kiosk in Client Portal › Configuration › Languages.</p>
+      <div class="card" style="display:none" aria-hidden="true"><h3>Language testing</h3><p class="hint">Enabled languages are set per kiosk in Client Portal › Configuration › Languages.</p>
         <div class="cfg"><label><input type="checkbox" id="sim-miss"> Mark text that falls back to English with ⚑</label></div><div class="btnrow" id="langbtns" style="margin-top:8px"></div></div>
-      <div class="card"><h3>Event log</h3><p class="hint">What the kiosk would send. Stays here for QA; the kiosk screen is cleared after each session. Audit records are in Client Portal › Audit log.</p><ul class="log" id="log"></ul></div>
+      <div class="card" style="display:none" aria-hidden="true"><h3>Event log</h3><p class="hint">What the kiosk would send. Stays here for QA; the kiosk screen is cleared after each session. Audit records are in Client Portal › Audit log.</p><ul class="log" id="log"></ul></div>
     </aside>
   </div>
 </section>
@@ -953,7 +954,13 @@ const typeLabel=k=>TYPE_DEF[k]&&TYPE_DEF[k].custom?TYPE_DEF[k].label:t('type.'+k
 
 function log(text,kind=''){S.log.unshift({t:new Date().toLocaleTimeString('en-GB'),text,kind});renderLog()}
 /* simulated server-side audit record — kept in page memory only */
-function audit(event,detail='',outcome='Success'){S.audit.unshift({at:new Date(),kiosk:LOC.kiosk,location:`${LOC.client} › ${LOC.location}`,event,detail,outcome});if(typeof renderPortal==='function'&&S.ptab==='audit')renderPortal()}
+/* Action audit: who did what, where. Client Portal actions are recorded against the signed-in portal user */
+const PORTAL_EV=['Configuration changed','Configuration save failed','Visitor type added','Visitor type deleted','Policy added','Policy new version','Policy removed','Policy visibility changed','Registration code generated','Kiosk created','Kiosk removed','Kiosk deactivated','Kiosk reactivated','Device registration reset','Device prepared for re-registration','Settings changes discarded','Audit log exported'];
+const PORTAL_USER='Kapil Chandra';
+function auditActor(event){if(PORTAL_EV.includes(event))return{src:'Client Portal',user:PORTAL_USER};const v=S.sess&&S.sess.v;
+  if(v&&v.first&&!['Operator sign-in','Operator sign-out','Kiosk launched for Post Site','Post Site switch started','Kiosk started','Configuration sync'].includes(event))return{src:'Kiosk',user:`${v.first} ${v.last||''}`.trim()+' (visitor)'};
+  return{src:'Kiosk',user:S.op&&S.op.name?S.op.name+' (kiosk operator)':'System'}}
+function audit(event,detail='',outcome='Success'){const who=auditActor(event);S.audit.unshift(Object.assign({at:new Date(),kiosk:LOC.kiosk,location:`${LOC.client} › ${LOC.location}`,event,detail,outcome},who));if(typeof renderPortal==='function'&&S.ptab==='audit')renderPortal()}
 
 /* ---- configuration-driven requirements ---- */
 function req(type){type=type||S.sess.type;const base=TYPE_DEF[type],c=S.kcfg.types[type];
@@ -2914,7 +2921,7 @@ function ctForm(){const n=S.pct;return `<div class="pnew cfform"><h3>Add a visit
  ${n.err?`<p class="perr" role="alert">${esc(n.err)}</p>`:''}<div class="prow"><button class="pbtn" data-pact="ctcancel">Cancel</button><button class="pbtn pri" data-pact="ctadd">Add visitor type</button></div></div>`}
 function savePortalCfg(){const E=validateCfg(S.pdraft);if(E.length){S.pcErr=E;log(`Client Portal: configuration not saved — ${E.length} validation error(s)`,'warn');return false}
   const diff=Object.keys(S.pdraft).filter(k=>k!=='version'&&JSON.stringify(S.pdraft[k])!==JSON.stringify(S.pcfg[k]));S.pdraft.version=S.pcfg.version+1;S.pcfg=clone(S.pdraft);S.pdraft=clone(S.pcfg);
-  log(`Client Portal: configuration v${S.pcfg.version} saved (${diff.join(', ')})`,'ok');audit('Configuration changed',`v${S.pcfg.version}: ${diff.join(', ')}`);syncConfig('save');return true}
+  log(`Client Portal: configuration v${S.pcfg.version} saved (${diff.join(', ')})`,'ok');audit('Configuration changed',`Version ${cfgVer(S.pcfg.version)}: ${diff.join(', ')}`);syncConfig('save');return true}
 function portalAudit(){const f=S.pauditF||'all';const ev=[...new Set(S.audit.map(a=>a.event))].sort();const rows=S.audit.filter(a=>f==='all'||a.event===f);
  return `<div class="pcard"><div class="phead"><h2>Audit log</h2><span class="pm">Records are held in this page only and are cleared when it is closed.</span>
   <label class="pm" style="margin-left:auto">Event <select id="pauditF">${[['all','All events'],...ev.map(e=>[e,e])].map(([v,l])=>`<option value="${esc(v)}" ${f===v?'selected':''}>${esc(l)}</option>`).join('')}</select></label></div>
@@ -2974,7 +2981,7 @@ const GPI={ /* simple line icons for the simulated GuardsPro sidebar */
  park:'<path d="M4 21V4h5a3 3 0 0 1 0 6H4"/><path d="M14 10h7M14 14h7M14 18h7M12 21V9"/>',chev:'<path d="M9 6l6 6-6 6"/>'};
 const gpi=(k,s=24)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${GPI[k]}</svg>`;
 const GP_SIDE=[['Dashboard','dash'],['Activity','act'],['Post Orders','post'],['GPS Tracker','gps',1],['Time Clock','clock',1],['Reports','rep'],['Scheduler','sched',1],['Dispatcher','disp'],['Visitor Manager','vis',1],['Parking Manager','park',1]];
-const GP_SEC=[['profile','Profile'],['#','SECURITY'],['chpw','Change Password',1],['2fa','2FA Method',1],['access','User Access'],['notif','Notification Settings'],['other','Other Settings'],['#','VISITOR MANAGER'],['vmk','Visitor Manager Kiosk Setting',1]];
+const GP_SEC=[['profile','Profile'],['#','SECURITY'],['chpw','Change Password',1],['2fa','2FA Method',1],['access','User Access'],['notif','Notification Settings'],['other','Other Settings'],['#','VISITOR MANAGER'],['vmk','Visitor Manager Kiosk Setting',1],['audit','Audit Logs',1]];
 const VMK_SECS=[['a','General'],['b','Check-in'],['c','Check-out'],['d','Forms & Agreements'],['e','Host Approval & Notifications'],['f','Badge & Confirmation'],['g','Language & Display'],['h','Privacy & Security']];
 S.pnav='vmk';S.pscope='global';S.pss={open:false,q:''};S.gpPop=null;S.gpSide=false;S.gpVm=true;
 
@@ -3057,8 +3064,8 @@ function gssList(){const q=S.pss.q.trim().toLowerCase(),hit=s=>!q||s.name.toLowe
 function gpPlaceholder(title,body){return `<div class="gp-ph"><h1>${esc(title)}</h1></div><div class="gp-scroll"><div class="gp-body"><div class="gp-empty">${body}</div></div></div>`}
 function gpContent(){const n=S.pnav;
  if(n==='vmk')return vmkPage();
- if(n==='audit')return `<div class="gp-ph"><h1>Visitor Manager · Kiosk audit log</h1></div><div class="gp-scroll"><div class="gp-body">${portalAudit()}</div></div>`;
- if(n.startsWith('mod:'))return gpPlaceholder(n.slice(4),`<b>${esc(n.slice(4))}</b> is part of the GuardsPro Client Portal and is not included in this prototype.<br>Open <a href="#" data-gpnav="vmk">Account Settings › Visitor Manager Kiosk Setting</a> or the <a href="#" data-gpnav="audit">kiosk audit log</a>.`);
+ if(n==='audit')return `<div class="gp-ph"><h1>Audit Logs</h1></div><div class="gp-scroll" id="gp-scroll"><div class="gp-body">${portalAudit()}</div></div>`;
+ if(n.startsWith('mod:'))return gpPlaceholder(n.slice(4),`<b>${esc(n.slice(4))}</b> is part of the GuardsPro Client Portal and is not included in this prototype.<br>Open <a href="#" data-gpnav="vmk">Account Settings › Visitor Manager Kiosk Setting</a> or <a href="#" data-gpnav="audit">Audit Logs</a>.`);
  const t=(GP_SEC.find(x=>x[0]===n)||[0,'Account'])[1];
  return gpPlaceholder(t==='2FA Method'?'Two Factor Authentication':t,`<b>${esc(t)}</b> is an existing Account Settings page. It is unchanged and not included in this prototype.<br>Kiosk settings are under <a href="#" data-gpnav="vmk">Visitor Manager Kiosk Setting</a>.`)}
 function gpPopHtml(){const p=S.gpPop;if(!p)return '';
@@ -3074,14 +3081,14 @@ function renderPortal(){const host=document.getElementById('portal');if(!host)re
  const sc=document.getElementById('gp-scroll'),top=sc?sc.scrollTop:0,ae=document.activeElement,keep=ae&&ae.dataset&&ae.dataset.pn?[ae.dataset.pn,ae.selectionStart]:ae&&ae.dataset&&ae.dataset.ct?['ct:'+ae.dataset.ct,ae.selectionStart]:ae&&ae.id==='gss-q'?['gss',ae.selectionStart]:ae&&ae.dataset&&ae.dataset.wel?['wel',ae.selectionStart]:null;
  const sec=S.pnav;
  host.innerHTML=`<div class="gpapp ${S.gpSide?'mini':''} ${S.gpMax?'max':''}">
-  <aside class="gp-side"><div class="gp-logo">${GP_LOGO}<b>GuardsPro</b></div><nav>${GP_SIDE.map(([l,i,sub])=>`<button type="button" class="gp-si ${l==='Visitor Manager'&&sec==='audit'?'on':''}" data-gpside="${l}" title="${l}">${gpi(i)}<span>${l}</span>${sub?`<i class="${l==='Visitor Manager'&&S.gpVm?'open':''}">${gpi('chev',16)}</i>`:''}</button>${l==='Visitor Manager'&&S.gpVm?`<button type="button" class="gp-si sub ${sec==='audit'?'on':''}" data-gpnav="audit"><span>Kiosk audit log</span></button>`:''}`).join('')}</nav></aside>
+  <aside class="gp-side"><div class="gp-logo">${GP_LOGO}<b>GuardsPro</b></div><nav>${GP_SIDE.map(([l,i,sub])=>`<button type="button" class="gp-si ${l==='Visitor Manager'&&sec==='audit'?'on':''}" data-gpside="${l}" title="${l}">${gpi(i)}<span>${l}</span>${sub?`<i class="${l==='Visitor Manager'&&S.gpVm?'open':''}">${gpi('chev',16)}</i>`:''}</button>${l==='Visitor Manager'&&S.gpVm?`<button type="button" class="gp-si sub ${sec==='audit'?'on':''}" data-gpnav="audit"><span>Audit Logs</span></button>`:''}`).join('')}</nav></aside>
   <div class="gp-main"><header class="gp-top"><button type="button" class="gp-ib" data-gp="side" aria-label="Collapse menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
    <div class="gp-tr"><button type="button" class="gp-ib" data-gp="max" aria-label="${S.gpMax?'Exit full screen':'Full screen'}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
    <button type="button" class="gp-ib" data-gp="pop:help" aria-label="Help"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17h.01"/></svg></button>
    <button type="button" class="gp-ib bell" data-gp="pop:bell" aria-label="Notifications, 0 new"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 20a2 2 0 0 0 4 0"/></svg><i>0</i></button>
    <button type="button" class="gp-user" data-gp="pop:user"><span class="gp-av" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#c9ccd4"/><circle cx="20" cy="16" r="7" fill="#7b7f8a"/><path d="M7 34c3-7 23-7 26 0" fill="#7b7f8a"/></svg></span><span class="gp-un"><b>Client K</b><span>Kapil</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>${gpPopHtml()}</header>
-   <div class="gp-wrap ${sec==='audit'||String(sec).startsWith('mod:')?'nosec':''} ${S.gpSec?'secoff':''}">
-    ${sec==='audit'||String(sec).startsWith('mod:')?'':`<nav class="gp-sec2" aria-label="Account settings"><div class="gp-s2h">Account</div>${GP_SEC.map(([k,l,ind])=>k==='#'?`<div class="gp-s2g">${l}</div>`:`<button type="button" class="gp-s2 ${ind?'ind':''} ${sec===k?'on':''}" data-gpnav="${k}" ${sec===k?'aria-current="page"':''}>${l}</button>`).join('')}</nav>`}
+   <div class="gp-wrap ${String(sec).startsWith('mod:')?'nosec':''} ${S.gpSec?'secoff':''}">
+    ${String(sec).startsWith('mod:')?'':`<nav class="gp-sec2" aria-label="Account settings"><div class="gp-s2h">Account</div>${GP_SEC.map(([k,l,ind])=>k==='#'?`<div class="gp-s2g">${l}</div>`:`<button type="button" class="gp-s2 ${ind?'ind':''} ${sec===k?'on':''}" data-gpnav="${k}" ${sec===k?'aria-current="page"':''}>${l}</button>`).join('')}</nav>`}
     <div class="gp-content">${gpContent()}</div></div></div>
   ${S.pguard?`<div class="gp-modal" role="dialog" aria-modal="true" aria-labelledby="gpg-t"><div class="gp-mbox"><h3 id="gpg-t">Discard unsaved changes?</h3><p>You changed Visitor Manager Kiosk Setting${S.pscope==='global'?'':' for '+esc(siteName(S.pscope))} without saving. If you leave now, those changes are lost.</p><div class="gp-mact"><button class="gbtn" data-gp="stay">Stay on this page</button><button class="gbtn bad" data-gp="discard">Discard changes</button></div></div></div>`:''}
   ${S.pdelc&&S.pnav==='vmk'&&S.pdraft&&S.pdraft.types[S.pdelc]?`<div class="gp-modal" role="alertdialog" aria-modal="true" aria-labelledby="gpd-t" aria-describedby="gpd-d"><div class="gp-mbox"><h3 id="gpd-t">Delete visitor type?</h3><p id="gpd-d">Are you sure you want to delete <b>${esc(tName(S.pdraft,S.pdelc))}</b>? Visitors will no longer see this option on the kiosk. This can't be undone.</p><div class="gp-mact"><button class="gbtn" data-pact="ctdelno">Cancel</button><button class="gbtn delc" data-pact="ctdel" data-arg="${S.pdelc}">Delete</button></div></div></div>`:''}
@@ -3095,12 +3102,12 @@ function gpGuard(fn){if(S.pnav==='vmk'&&vDirty()){S.pguardFn=fn;S.pguard=true;re
 function gpGo(n){gpGuard(()=>{S.pnav=n;S.pss.open=false;S.gpPop=null;S.vErr=null;S.pct=null;S.pdelc=null;renderPortal();const c=document.getElementById('gp-scroll');if(c)c.scrollTop=0})}
 function vScroll(k){const el=document.getElementById('vmk-'+k),sc=document.getElementById('gp-scroll');if(el&&sc)sc.scrollTo({top:el.offsetTop-sc.offsetTop-8,behavior:'smooth'})}
 function publishCfg(){try{localStorage.setItem('gpvk_cfg',JSON.stringify({at:Date.now(),pcfg:S.pcfg,ovr:Object.fromEntries(OP_SITES.filter(x=>x.ovr).map(x=>[x.id,x.ovr]))}))}catch(e){}}
-function vSave(){const c=S.pdraft,E=vErrors(c);if(E.length){S.vErr=E;log(`Client Portal: Visitor Manager Kiosk Setting not saved — ${E.length} validation error(s)`,'warn');renderPortal();const sc=document.getElementById('gp-scroll');if(sc)sc.scrollTop=0;return false}
+function vSave(){const c=S.pdraft,E=vErrors(c);if(E.length){S.vErr=E;log(`Client Portal: Visitor Manager Kiosk Setting not saved — ${E.length} validation error(s)`,'warn');audit('Configuration save failed',E.map(x=>x[2]).join(' '),'Failed');renderPortal();const sc=document.getElementById('gp-scroll');if(sc)sc.scrollTop=0;return false}
  S.vErr=null;let msg;
- if(S.pscope==='global'){savePortalCfg();msg=`Settings saved · global defaults · version ${cfgVer(S.pcfg.version)}`}
+ if(S.pscope==='global'){polAudit(S.pcfg.policies||[],c.policies||[]);savePortalCfg();msg=`Settings saved · global defaults · version ${cfgVer(S.pcfg.version)}`}
  else{const site=opSite(S.pscope),before=JSON.stringify(site.ovr||{}),o=cdiff(S.pcfg,c);if(Object.keys(o).length)site.ovr=o;else delete site.ovr;
   S.pcfg.version++;const diff=Object.keys(o).join(', ')||'none';log(`Client Portal: kiosk settings for ${site.name} saved as v${S.pcfg.version} (site overrides: ${diff})`,'ok');
-  audit('Configuration changed',`v${S.pcfg.version} · ${site.name} (${site.id}) site settings: ${diff}`);S.pdraft=siteCfg(site.id);syncConfig('save');
+  audit('Configuration changed',`Version ${cfgVer(S.pcfg.version)} · ${site.name} (${site.id}) site settings: ${diff}`);S.pdraft=siteCfg(site.id);syncConfig('save');
   msg=`Settings saved for ${site.name} · version ${cfgVer(S.pcfg.version)}`;void before}
  vReset();publishCfg();S.ptoast=msg;clearTimeout(S.ptoastT);S.ptoastT=setTimeout(()=>{S.ptoast=null;renderPortal()},3500);renderPortal();return true}
 
@@ -3126,7 +3133,7 @@ document.addEventListener('click',e=>{const P=document.getElementById('portal');
  if(a==='defaults'){const v=S.pdraft.version;S.pdraft=clone(PCFG0);S.pdraft.version=v;S.pdraft.customTypes=[];S.vErr=null;return renderPortal()}
  if(a==='useglobal'){S.pdraft=clone(S.pcfg);S.vErr=null;return renderPortal()}
  if(a==='stay'){S.pguard=false;S.pguardFn=null;return renderPortal()}
- if(a==='discard'){const fn=S.pguardFn;S.pguard=false;S.pguardFn=null;vReset();S.vErr=null;S.pct=null;log('Client Portal: unsaved kiosk setting changes discarded','warn');return fn&&fn()}});
+ if(a==='discard'){audit('Settings changes discarded','Unsaved Visitor Manager Kiosk Setting changes discarded');const fn=S.pguardFn;S.pguard=false;S.pguardFn=null;vReset();S.vErr=null;S.pct=null;log('Client Portal: unsaved kiosk setting changes discarded','warn');return fn&&fn()}});
 window.addEventListener('beforeunload',e=>{if(S.pnav==='vmk'&&vDirty()){e.preventDefault();e.returnValue=''}});
 /* the welcome message updates the draft on every keystroke; skip the generic change re-render so a following click (Save) is not lost */
 document.addEventListener('change',e=>{if(e.target.dataset&&e.target.dataset.wel)e.stopImmediatePropagation()},true);
@@ -3174,6 +3181,31 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-gp]');if(!
 
 /* one option now covers host and reception at check-in */
 document.addEventListener('change',e=>{const el=e.target;if(el.dataset&&el.dataset.pc==='notify.reception'&&S.pdraft)S.pdraft.notifyHost=el.checked},true);
+
+function polAudit(A,B){B.forEach(p=>{const o=A.find(x=>x.id===p.id);if(!o)audit('Policy added',`${p.title} v${p.ver}${p.file?' · '+p.file.name:''}`);else{if(o.ver!==p.ver)audit('Policy new version',`${p.title} v${o.ver} → v${p.ver}${p.file?' · '+p.file.name:''}`);
+  if(o.all!==p.all||JSON.stringify(o.types||[])!==JSON.stringify(p.types||[]))audit('Policy visibility changed',`${p.title}: ${p.all?'all visitor types':(p.types||[]).join(', ')||'no visitor types'}`)}});
+  A.forEach(o=>{if(!B.some(p=>p.id===o.id))audit('Policy removed',o.title)})}
+/* ---------- Audit Logs (action audit) ---------- */
+function auditRows(){const f=S.pauF||{src:'all',ev:'all',out:'all',q:''},q=(f.q||'').trim().toLowerCase();
+ return S.audit.filter(a=>(f.src==='all'||(a.src||'Kiosk')===f.src)&&(f.ev==='all'||a.event===f.ev)&&(f.out==='all'||(f.out==='ok'?!/Fail|Reject|Block|Held|Timeout|Not/.test(a.outcome):/Fail|Reject|Block|Held|Timeout|Not/.test(a.outcome)))&&(!q||[a.event,a.detail,a.user,a.location,a.kiosk].join(' ').toLowerCase().includes(q)))}
+function portalAudit(){const f=S.pauF=S.pauF||{src:'all',ev:'all',out:'all',q:''},ev=[...new Set(S.audit.map(a=>a.event))].sort(),rows=auditRows();
+ const opt=(v,l,cur)=>`<option value="${esc(v)}" ${cur===v?'selected':''}>${esc(l)}</option>`;
+ return `<p class="gp-desc" style="margin-bottom:14px">Every action taken in the Client Portal and on the kiosk: who did it, when, where and the result.</p>
+ <div class="au-f"><label>Source<select class="gsel" data-au="src">${opt('all','All sources',f.src)}${opt('Client Portal','Client Portal',f.src)}${opt('Kiosk','Kiosk',f.src)}</select></label>
+  <label>Action<select class="gsel" data-au="ev">${opt('all','All actions',f.ev)}${ev.map(e=>opt(e,e,f.ev)).join('')}</select></label>
+  <label>Result<select class="gsel" data-au="out">${opt('all','All results',f.out)}${opt('ok','Success',f.out)}${opt('bad','Failed or held',f.out)}</select></label>
+  <label class="au-q">Search<input class="gsel" data-au="q" type="search" value="${esc(f.q||'')}" placeholder="User, visitor, badge ID…" autocomplete="off"></label>
+  <button class="gbtn" data-gp="auexport" ${rows.length?'':'disabled'}>Export CSV</button></div>
+ <p class="pm au-n">${rows.length} of ${S.audit.length} records</p>
+ ${rows.length?`<div class="tbl gp-tbl"><table><thead><tr><th>Date &amp; time</th><th>Source</th><th>User</th><th>Action</th><th>Details</th><th>Location</th><th>Result</th></tr></thead><tbody>${rows.slice(0,300).map(a=>`<tr><td class="mono">${a.at.toLocaleDateString('en-GB',{day:'2-digit',month:'short'})} ${a.at.toLocaleTimeString('en-GB')}</td><td>${esc(a.src||'Kiosk')}</td><td>${esc(a.user||'System')}</td><td><b>${esc(a.event)}</b></td><td>${esc(a.detail)}</td><td>${esc(String(a.location).split(' › ').pop())}<div class="pm mono">${esc(a.kiosk)}</div></td><td>${chipS(esc(a.outcome),/Fail|Reject|Block|Held|Timeout|Not/.test(a.outcome)?'bad':'ok')}</td></tr>`).join('')}</tbody></table></div>`:'<div class="gp-empty">No records match these filters.</div>'}`}
+document.addEventListener('change',e=>{const el=e.target;if(el.dataset&&el.dataset.au&&el.dataset.au!=='q'){S.pauF[el.dataset.au]=el.value;renderPortal()}});
+document.addEventListener('input',e=>{const el=e.target;if(el.dataset&&el.dataset.au==='q'){S.pauF.q=el.value;clearTimeout(S.auT);S.auT=setTimeout(()=>{renderPortal();const i=document.querySelector('[data-au=q]');if(i){i.focus();i.setSelectionRange(i.value.length,i.value.length)}},250)}});
+document.addEventListener('click',e=>{const g=e.target.closest('[data-gp=auexport]');if(!g)return;const rows=auditRows(),q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"';
+ const csv=[['Date','Time','Source','User','Action','Details','Location','Kiosk','Result'].map(q).join(','),...rows.map(a=>[a.at.toLocaleDateString('en-GB'),a.at.toLocaleTimeString('en-GB'),a.src||'Kiosk',a.user||'System',a.event,a.detail,a.location,a.kiosk,a.outcome].map(q).join(','))].join('\r\n');
+ const fn=`visitor-kiosk-audit-${isoDay(new Date())}.csv`,done=()=>audit('Audit log exported',`${rows.length} records`);
+ const local=()=>{const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'})),l=document.createElement('a');l.href=url;l.download=fn;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);done()};
+ /* published page: the viewer's save prompt; opened as a file: an ordinary browser download */
+ if(window.claude&&typeof window.claude.use==='function'){window.claude.use('downloads').then(d=>{if(!d)return local();d.save({filename:fn,data:csv}).then(done).catch(err=>{if(err&&err.code!=='declined'&&err.code!=='rate_limited')log('Audit export unavailable here: '+(err.code||err),'warn')})}).catch(local)}else local()},true);
 /* ===== boot ===== */
 log(`Kiosk ${LOC.kiosk} started — registered to ${LOC.client} › ${LOC.location}; configuration v${S.kcfg.version}. Visitors cannot change this.`);
 audit('Kiosk started',`Configuration v${S.kcfg.version}`);
