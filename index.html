@@ -638,6 +638,7 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 .dt-pick{display:flex;gap:10px;align-items:center;margin:22px 0 0;color:var(--k-muted);font-size:17px}.dt-fields+.tmore{margin-top:18px}
 .op-acct.noname{border:0;background:none;padding:0;box-shadow:none}
 .k-modal.sopw{text-align:start}.k-modal.sopw .lgf{margin:18px 0 6px}.k-modal.sopw .acts{margin-top:18px}
+.accept.locked{opacity:.55;cursor:not-allowed}.accept.locked .box{border-style:dashed}
 </style>
 <style>
 /* ===== simulated GuardsPro Client Portal (matches the production Account Settings layout) ===== */
@@ -730,7 +731,7 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 .gp-mbox.polprev{max-width:820px;width:calc(100% - 32px)}.polprev-b{max-height:60vh;overflow:auto;border:1px solid var(--gl);border-radius:4px;padding:12px 16px;margin:0 0 14px;line-height:1.5}.polprev-b .pdfdoc{width:100%;height:55vh}
 </style>
 <style>.split-both .gpapp{height:calc(100vh - 110px);min-height:640px}</style><header class="topbar"><div class="topbar-in wrap">
-  <div class="brand"><span class="brand-logo"><svg width="32" height="37" viewBox="0 0 40 46" aria-hidden="true"><defs><linearGradient id="gpS2" x1="0" x2="1" y1="0" y2="0"><stop offset=".5" stop-color="#3865f7"/><stop offset=".5" stop-color="#1a2bc3"/></linearGradient><clipPath id="gpC2"><path d="M20 5.2l14.3 3.9v11.2c0 9.6-6.3 16-14.3 20-8-4-14.3-10.4-14.3-20V9.1z"/></clipPath></defs><path d="M20 1l18 5v14.4c0 12-8 20-18 24.6C10 40.4 2 32.4 2 20.4V6z" fill="url(#gpS2)"/><path d="M20 5.2l14.3 3.9v11.2c0 9.6-6.3 16-14.3 20-8-4-14.3-10.4-14.3-20V9.1z" fill="#fff"/><g clip-path="url(#gpC2)"><path d="M6 42c1-8.5 6.5-12 14-12.5 7.5.5 13 4 14 12.5z" fill="#253053"/><path d="M16.3 30l3.7 4.6 3.7-4.6" fill="none" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/><path d="M20 34.6V42" stroke="#fff" stroke-width="1.1"/><rect x="25.4" y="33.6" width="2.4" height="2.4" rx=".4" fill="#9aa0ad"/><path d="M17.8 25.2h4.4v5h-4.4z" fill="#fff" stroke="#253053" stroke-width=".9"/><ellipse cx="20" cy="21.4" rx="4.7" ry="5.3" fill="#fff" stroke="#253053" stroke-width="1"/><path d="M18.6 24.1h2.8" stroke="#4b515f" stroke-width=".6" stroke-linecap="round"/><path d="M17.6 20.9h1.3M21.1 20.9h1.3" stroke="#4b515f" stroke-width=".7" stroke-linecap="round"/><path d="M13.6 17.3c-.4-4.6 3-6.6 6.4-6.6s6.8 2 6.4 6.6z" fill="#253053"/><rect x="14.4" y="16.6" width="11.2" height="1.8" fill="#151d36"/><path d="M14.6 18.3q5.4 2.6 10.8 0v1q-5.4 2.6-10.8 0z" fill="#151d36"/><rect x="19.2" y="12.4" width="1.6" height="2.4" rx=".3" fill="#3865f7"/></g></svg></span><div><b>GuardsPro Visitor Kiosk</b><span>iPad prototype · v0.3 · SRD v1.0 gap closure + multilingual</span></div></div>
+  <div class="brand"><span class="brand-logo"><svg width="32" height="37" viewBox="0 0 40 46" aria-hidden="true"><defs><linearGradient id="gpS2" x1="0" x2="1" y1="0" y2="0"><stop offset=".5" stop-color="#3865f7"/><stop offset=".5" stop-color="#1a2bc3"/></linearGradient><clipPath id="gpC2"><path d="M20 5.2l14.3 3.9v11.2c0 9.6-6.3 16-14.3 20-8-4-14.3-10.4-14.3-20V9.1z"/></clipPath></defs><path d="M20 1l18 5v14.4c0 12-8 20-18 24.6C10 40.4 2 32.4 2 20.4V6z" fill="url(#gpS2)"/><path d="M20 5.2l14.3 3.9v11.2c0 9.6-6.3 16-14.3 20-8-4-14.3-10.4-14.3-20V9.1z" fill="#fff"/><g clip-path="url(#gpC2)"><path d="M6 42c1-8.5 6.5-12 14-12.5 7.5.5 13 4 14 12.5z" fill="#253053"/><path d="M16.3 30l3.7 4.6 3.7-4.6" fill="none" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/><path d="M20 34.6V42" stroke="#fff" stroke-width="1.1"/><rect x="25.4" y="33.6" width="2.4" height="2.4" rx=".4" fill="#9aa0ad"/><path d="M17.8 25.2h4.4v5h-4.4z" fill="#fff" stroke="#253053" stroke-width=".9"/><ellipse cx="20" cy="21.4" rx="4.7" ry="5.3" fill="#fff" stroke="#253053" stroke-width="1"/><path d="M18.6 24.1h2.8" stroke="#4b515f" stroke-width=".6" stroke-linecap="round"/><path d="M17.6 20.9h1.3M21.1 20.9h1.3" stroke="#4b515f" stroke-width=".7" stroke-linecap="round"/><path d="M13.6 17.3c-.4-4.6 3-6.6 6.4-6.6s6.8 2 6.4 6.6z" fill="#253053"/><rect x="14.4" y="16.6" width="11.2" height="1.8" fill="#151d36"/><path d="M14.6 18.3q5.4 2.6 10.8 0v1q-5.4 2.6-10.8 0z" fill="#151d36"/><rect x="19.2" y="12.4" width="1.6" height="2.4" rx=".3" fill="#3865f7"/></g></svg></span><div><b>GuardsPro Visitor Kiosk</b><span>iPad prototype · v1.0</span></div></div>
   <nav class="tabs" role="tablist" aria-label="Deliverables">
     <button class="tab" role="tab" data-tab="proto" aria-selected="true">Kiosk prototype</button>
     <button class="tab" role="tab" data-tab="portal" aria-selected="false">Client Portal</button>
@@ -901,9 +902,9 @@ const PCFG0={version:12,
  walkinOrder:'details-first',                           /* SRD §50 order; 'type-first' = v0.1 order (Pending confirmation) */
  baseFields:{email:'req',phone:'opt',company:'opt',title:'opt'},
  types:JSON.parse(JSON.stringify(Object.fromEntries(TYPE_KEYS.map(k=>[k,{enabled:true,photo:TYPE_DEF[k].photo,uploads:TYPE_DEF[k].uploads,approval:TYPE_DEF[k].approval,fields:TYPE_DEF[k].fields}])))),
- customFields:[],customTypes:[],notifyHost:true,notify:{reception:true,security:true,checkout:true},
+ customFields:[],customTypes:[],notifyHost:true,notify:{reception:true,security:false,checkout:true},
  badge:{print:true,email:true,retries:2,notifyStaffOnFail:true,fields:{logo:true,photo:true,name:true,company:true,type:true,host:true,location:true,checkin:true,expiry:true,badgeId:true,qr:true},validHours:8},
- session:{timeout:60,warn:15,resetCheckin:30,resetCheckout:15},
+ session:{timeout:90,warn:30,resetCheckin:30,resetCheckout:15},
  languages:{enabled:['en','es','hi','fr'],order:['en','es','hi','fr'],default:'en'},
  welcome:'Welcome to {location}',
  /* Manage Policies: documents visitors read and accept before signing. all=true → every visitor type, otherwise only the listed types */
@@ -1046,6 +1047,8 @@ function syncPolicies(){const P=(S.kcfg&&S.kcfg.policies)||[];if(!P.length)retur
   TYPE_KEYS.forEach(k=>{if(TYPE_DEF[k])TYPE_DEF[k].docs=P.filter(p=>p.all||(p.types||[]).includes(k)).map(p=>p.id)})}
 function syncCustomTypes(){const cts=(S.kcfg&&S.kcfg.customTypes)||[];for(let i=TYPE_KEYS.length-1;i>=0;i--){const k=TYPE_KEYS[i];if(TYPE_DEF[k]&&TYPE_DEF[k].custom&&!cts.some(c=>c.key===k)){TYPE_KEYS.splice(i,1);delete TYPE_DEF[k]}}
   cts.forEach(c=>{const x=S.kcfg.types[c.key]||{};TYPE_DEF[c.key]={custom:true,label:c.label,desc:c.desc,icon:'id',photo:x.photo||'optional',uploads:x.uploads||'optional',forms:[],docs:['policy','privacy'],sign:true,approval:!!x.approval,fields:x.fields||{},suggest:'meeting',badge:c.color};if(!TYPE_KEYS.includes(c.key))TYPE_KEYS.push(c.key)})}
+/* configuration version shown to people: v12 (first release) = 1.0, each save adds .1 */
+const cfgVer=n=>'1.'+Math.max(0,(n||12)-12);
 function render(){syncCustomTypes();syncPolicies();syncCustomFields();const def=SCREENS[S.screen];const v=def.view(S.params)||{};const sc=document.getElementById('screen');
   const inSession=S.screen!=='home'&&!def.admin;const showStart=inSession&&!v.noStart;const L=LANGS[S.lang]||LANGS.en;
   const head=`<div class="k-status"><span>${fmtTime(nowMin())}</span><span class="r">${ic(online()?'wifi':'wifiOff',18)} 87% ${ic('battery',24,1.6)}</span></div>
@@ -1259,6 +1262,8 @@ Object.assign(I18N.en,{"agr.signNow": "Sign with your finger or a stylus."});
 Object.assign(I18N.en,{"agr.updated": "Updated since your last visit · tap to read"});
 
 Object.assign(I18N.en,{"det.pickFirst": "Choose an option above to continue. The details we need depend on your choice."});
+
+Object.assign(I18N.en,{"badge.staffNotified": "Your host has been told."});
 /* ===== Español — prototype translation, not professionally reviewed ===== */
 I18N.es={
 'a11y.language':'Idioma','a11y.progress':'Progreso del registro',
@@ -1419,6 +1424,8 @@ Object.assign(I18N.es,{"agr.signNow": "Firme con el dedo o con un lápiz digital
 Object.assign(I18N.es,{"agr.updated": "Actualizado desde su última visita · toque para leer"});
 
 Object.assign(I18N.es,{"det.pickFirst": "Elija una opción arriba para continuar. Los datos que necesitamos dependen de su elección."});
+
+Object.assign(I18N.es,{"badge.staffNotified": "Se ha avisado a su anfitrión."});
 /* ===== हिन्दी — prototype translation, not professionally reviewed ===== */
 I18N.hi={
 'a11y.language':'भाषा','a11y.progress':'पंजीकरण की प्रगति',
@@ -1579,6 +1586,8 @@ Object.assign(I18N.hi,{"agr.signNow": "अपनी उंगली या स�
 Object.assign(I18N.hi,{"agr.updated": "आपकी पिछली यात्रा के बाद अपडेट हुआ · पढ़ने के लिए टैप करें"});
 
 Object.assign(I18N.hi,{"det.pickFirst": "जारी रखने के लिए ऊपर एक विकल्प चुनें। आवश्यक विवरण आपके चुनाव पर निर्भर करते हैं।"});
+
+Object.assign(I18N.hi,{"badge.staffNotified": "आपके मेज़बान को सूचित कर दिया गया है।"});
 /* ===== Français — prototype translation, not professionally reviewed ===== */
 I18N.fr={
 'a11y.language':'Langue','a11y.progress':"Progression de l'enregistrement",
@@ -1741,6 +1750,8 @@ Object.assign(I18N.fr,{"agr.signNow": "Signez avec le doigt ou un stylet."});
 Object.assign(I18N.fr,{"agr.updated": "Mis à jour depuis votre dernière visite · touchez pour lire"});
 
 Object.assign(I18N.fr,{"det.pickFirst": "Choisissez une option ci-dessus pour continuer. Les informations demandées dépendent de votre choix."});
+
+Object.assign(I18N.fr,{"badge.staffNotified": "Votre hôte a été prévenu."});
 /* ===== v0.3 screens: entry, invitation, returning, registration (all visitor text via t()) ===== */
 const A={};const SCREENS={};
 const tab=(cur,val,label,icn,act)=>`<button class="chip ${cur===val?'on':''}" data-act="${act}" data-arg="${val}" aria-pressed="${cur===val}">${ic(icn,20)} ${label}</button>`;
@@ -2096,9 +2107,13 @@ SCREENS.sign={id:'S15',name:'Agreements and signature',view(p){const s=S.sess,r=
   const pt=e=>{const r=c.getBoundingClientRect();return[(e.clientX-r.left)*c.width/r.width,(e.clientY-r.top)*c.height/r.height]};
   c.onpointerdown=e=>{dr=true;c.setPointerCapture(e.pointerId);const[x,y]=pt(e);g.beginPath();g.moveTo(x,y);S.sigInk=true;document.getElementById('sigph').style.display='none'};
   c.onpointermove=e=>{if(!dr)return;const[x,y]=pt(e);g.lineTo(x,y);g.stroke()};c.onpointerup=c.onpointercancel=()=>{dr=false}}};
-A.openDoc=id=>{S.modal={kind:'doc',id};delete S.sess.errs.doc;render()};
-A.docAgree=id=>{const s=S.sess,d=DOCS[id];s.docs[id]=s.docs[id]===d.ver?null:d.ver;if(s.docs[id]){log(`${id} v${d.ver} accepted (UI language ${S.lang}, document language en)`,'ok');audit('Agreement accepted',`${id} v${d.ver}`)}else s.sig=null;
-  const b=document.getElementById('mdocbody');S._docScroll=b?b.scrollTop:null;render();const nb=document.getElementById('mdocbody');if(nb&&S._docScroll!=null){nb.scrollTop=S._docScroll;S._docScroll=null}};
+A.openDoc=id=>{S.modal={kind:'doc',id};delete S.sess.errs.doc;render();docReadCheck()};
+/* the accept box unlocks only after the visitor has scrolled to the end of the document */
+function docReadCheck(){const b=document.getElementById('mdocbody');if(!b||!S.modal||S.modal.kind!=='doc')return;const id=S.modal.id;
+  if(b.scrollTop+b.clientHeight>=b.scrollHeight-6&&!S.sess.read[id]){S.sess.read[id]=true;log(`${id}: read to the end`);const a=document.getElementById('mdocacc');if(a){a.disabled=false;a.classList.remove('locked');a.removeAttribute('aria-describedby')}const h=document.getElementById('mdochint');if(h)h.style.display='none'}}
+document.addEventListener('scroll',e=>{if(e.target&&e.target.id==='mdocbody')docReadCheck()},true);
+A.docAgree=id=>{const s=S.sess,d=DOCS[id];if(!s.read[id]&&s.docs[id]!==d.ver&&!(d.file&&d.file.kind==='pdf'))return;s.docs[id]=s.docs[id]===d.ver?null:d.ver;if(s.docs[id]){log(`${id} v${d.ver} accepted (UI language ${S.lang}, document language en)`,'ok');audit('Agreement accepted',`${id} v${d.ver}`)}else s.sig=null;
+  const b=document.getElementById('mdocbody');S._docScroll=b?b.scrollTop:null;render();const nb=document.getElementById('mdocbody');if(nb&&S._docScroll!=null){nb.scrollTop=S._docScroll;S._docScroll=null}docReadCheck()};
 A.docDone=()=>{S.modal=null;render()};
 A.clearSig=()=>{S.sess.sig=null;delete S.sess.errs.sig;rerender()};
 A.confirmSig=()=>{const s=S.sess,c=document.getElementById('sigpad');if(!S.sigInk){s.errs.sig='err.sigDraw';return rerender()}
@@ -2136,7 +2151,7 @@ A.confirmReview=()=>{const s=S.sess,r=req();if(outstanding().length)return;if(s.
 /* S18 Approval */
 SCREENS.approval={id:'S18',name:'Host approval pending',view(){const s=S.sess,h=hostById(s.host);
  return{step:'checkin',body:`<div class="center-state"><div class="big-ic info">${ic('hourglass',56)}</div><h1 class="k-title">${t('ap.title')}</h1>
-  <div class="notice info apnote" role="status">${ic('bell',28)}<div><b>${t('ap.notified',{name:esc(h.name)})}</b><br>${t('ap.seat')}</div></div>
+  <div class="notice info apnote" role="status">${ic('bell',28)}<div><b>${t('ap.notified',{name:esc(h.name)+(h.dept?' ('+esc(h.dept)+')':'')})}</b><br>${t('ap.seat')}</div></div>
   <div class="apwait" role="status"><span class="spin sm"></span> ${t('ap.waiting')} <span id="apel" class="tnum">0:00</span></div>
   <div class="assist">${ic('help',24)} ${t('ap.assist')}</div></div>`,footer:{extra:[{label:t('ap.cancel'),act:'startOver',icon:'x'}],note:t('ap.saved')}}}};
 A.approve=()=>{if(S.screen!=='approval')return;S.sess.approval='approved';log('Host approved the visit (simulated)','ok');audit('Approval decision','Approved');validateAndCheckIn()};
@@ -2182,7 +2197,7 @@ function badgeHtml(){const s=S.sess,v=s.visit,h=hostById(s.host),F=S.kcfg.badge.
   ${F.badgeId||F.qr?`<div class="bf">${F.badgeId?`<div><span class="bl">${t('badge.id')}</span><span class="id">${v.badge}</span></div>`:'<span></span>'}${F.qr?qrSvg(v.badge):''}</div>`:''}</div>`}
 function sentHtml(s,h){const S2=s.sent||{},L=[];
  if(S2.badge&&!S.kcfg.badge.print)L.push(['mail',t('ok.badgeEmailed',{email:esc(maskEmail(S2.badge))})]);if(S2.noEmail)L.push(['printer',t('ok.badgeNoEmail')]);
- if(s.hostNotified)L.push(['bell',t('ok.notified',{name:esc(h.name)})]);if(S2.reception)L.push(['userCheck',t('ok.receptionNotified')]);
+ if(s.hostNotified)L.push(['bell',t('ok.notified',{name:esc(h.name)+(h.dept?' ('+esc(h.dept)+')':'')})]);if(S2.reception)L.push(['userCheck',t('ok.receptionNotified')]);
  return L.length?`<div class="notice info sentlist" role="status"><ul>${L.map(([i,x])=>`<li>${ic(i,22)}<span>${x}</span></li>`).join('')}</ul></div>`:''}
 SCREENS.success={id:'S20',name:'Successful check-in (+ S21 badge printing)',view(){const s=S.sess,v=s.visit,h=hostById(s.host),ps=s.printState;let right='';
  if(S.kcfg.badge.print){const st={preparing:['prog','badge.preparing'],printing:['prog','badge.printing'],printed:['done','badge.printed'],failed:['err','badge.failed'],unavailable:['err','badge.unavailable']}[ps]||['prog','badge.preparing'];
@@ -2203,7 +2218,9 @@ function printRun(){const s=S.sess;s.printState='preparing';rerender();log(`Badg
     s.printState='printing';rerender();later(()=>{if(S.sim.print==='ok'){s.printState='printed';log(`Badge ${s.visit.badge} printed`,'ok');audit('Badge print',s.visit.badge)}
       else{s.printTries++;s.printState='failed';log(`Badge print failed (attempt ${s.printTries}) — visit ${s.visit.badge} unchanged, no duplicate visit`,'err');audit('Badge print failure',`${s.visit.badge} · attempt ${s.printTries}`,'Failed');
         if(s.printTries>=S.kcfg.badge.retries)notifyStaff()}S.auto=S.kcfg.session.resetCheckin;rerender()},1600)},900)}
-function notifyStaff(){if(!S.kcfg.badge.notifyStaffOnFail)return;S.sess.staffNotified=true;log('Reception notified of badge print failure (simulated)','warn');audit('Staff notified','Badge print failure at '+LOC.location)}
+function notifyStaff(){if(!S.kcfg.badge.notifyStaffOnFail)return;const s=S.sess,h=hostById(s.host)||{name:'Host'},name=fullName(s.v);S.sess.staffNotified=true;
+  if(typeof sendMsg==='function')sendMsg({kind:'in',role:'Host',channel:'App notification',toName:h.name,to:'GuardsPro app',subject:`Badge could not be printed for ${name}`,intro:`The visitor badge for ${name} could not be printed at ${LOC.location}. Please meet your visitor in reception with a temporary badge.`,rows:[['Visitor',name],['Location',`${LOC.location}, ${LOC.client}`],['Badge ID',(s.visit&&s.visit.badge)||'—']]});
+  log(`Host ${h.name} notified of badge print failure (simulated)`,'warn');audit('Host notified','Badge print failure at '+LOC.location)}
 A.retryPrint=()=>{S.auto=null;printRun()};
 A.finish=()=>{log('Session finished — kiosk reset');endSession()};
 
@@ -2269,11 +2286,11 @@ const MODALS={
   <div class="lgf ${s.soErr?'bad':''}"><label for="f-soPw">Password<span class="req" aria-hidden="true">*</span></label><div class="lgw"><input class="inp" id="f-soPw" data-bind="soPw" type="${s.soShow?'text':'password'}" value="${esc(s.soPw||'')}" autocomplete="current-password" aria-required="true" ${s.soErr?'aria-invalid="true" aria-describedby="f-soPw-e"':''}><button type="button" class="lg-show" data-act="soPwShow">${s.soShow?'Hide':'Show'}</button></div>
   ${s.soErr?`<span class="ferr" id="f-soPw-e" role="alert">${ic('alert',16)} ${esc(s.soErr)}</span>`:''}</div>
   <div class="acts"><button class="btn btn-s" data-act="closeModal">Cancel</button><button class="btn btn-d op-submit" data-act="soPwConfirm">${ic('logout',22)} Sign Out</button></div></div></div>`},
- doc:m=>{const s=S.sess,d=DOCS[m.id],title=t('doc.'+m.id+'.title'),acc=s.docs[m.id]===d.ver,effD=new Date(d.eff+'T00:00:00').toLocaleDateString(loc(),{day:'numeric',month:'short',year:'numeric'});
+ doc:m=>{const s=S.sess,d=DOCS[m.id],title=t('doc.'+m.id+'.title'),acc=s.docs[m.id]===d.ver,rd=acc||!!s.read[m.id]||(d.file&&d.file.kind==='pdf'),effD=new Date(d.eff+'T00:00:00').toLocaleDateString(loc(),{day:'numeric',month:'short',year:'numeric'});
   return `<div class="k-modal-back"><div class="k-modal mdoc" role="dialog" aria-modal="true" aria-labelledby="mdt"><div class="mdoc-h"><span class="dico">${ic('file',26)}</span><div><h2 id="mdt">${title}</h2><span class="dver">${t('doc.ver',{v:d.ver,d:effD})}</span></div></div>
   ${S.lang!=='en'?`<div class="notice info" style="margin:0 0 10px">${ic('globe',22)}<div>${t('doc.enOnly')}</div></div>`:''}
   <div class="docbody mdocbody" id="mdocbody" tabindex="0" lang="en" dir="ltr">${d.body}<p class="docend">${t('doc.end')}</p></div>
-  <button class="accept" data-act="docAgree" data-arg="${m.id}" aria-pressed="${acc}"><span class="box ${acc?'on':''}">${acc?ic('check',24,3):''}</span><span>${t('doc.accept',{title})}</span></button>
+  <button class="accept ${rd?'':'locked'}" id="mdocacc" data-act="docAgree" data-arg="${m.id}" aria-pressed="${acc}" ${rd?'':'disabled aria-describedby="mdochint"'}><span class="box ${acc?'on':''}">${acc?ic('check',24,3):''}</span><span>${t('doc.accept',{title})}<span id="mdochint" class="fhint" style="display:${rd?'none':'block'}">${t('doc.scroll')}</span></span></button>
   <div class="acts"><button class="btn btn-p" data-act="docDone">${acc?t('agr.done'):t('btn.close')}</button></div></div></div>`},
  lgHelp:()=>`<div class="k-modal-back"><div class="k-modal lghelp" role="dialog" aria-modal="true" aria-labelledby="mlh"><h2 id="mlh">Need help signing in?</h2>
   <ol><li>Check that you're using the email address of your GuardsPro Client Portal account.</li><li>Passwords are case-sensitive. Tap the eye icon to check what you typed.</li><li>Forgotten your password? Use <b>Forgot password?</b> to get reset instructions.</li><li>Still stuck, or your account is locked? Contact your GuardsPro administrator.</li></ol>
@@ -2281,7 +2298,7 @@ const MODALS={
  help:()=>`<div class="k-modal-back"><div class="k-modal" role="dialog" aria-modal="true" aria-labelledby="mh"><div class="big-ic info sm">${ic('help',40)}</div><h2 id="mh">${t('help.title')}</h2>
   <p>${t('help.body')}</p><button class="helpabout" data-act="about">${ic('info',22)}<span><b>${t('about.btn')}</b><small>${t('about.link',{v:esc(((S.dev&&S.dev.appVersion)||'1.0.0').split(' ')[0])})}</small></span>${ic('right',22)}</button><div class="acts"><button class="btn btn-p" data-act="closeModal">${t('btn.close')}</button></div></div></div>`,
  about:()=>`<div class="k-modal-back"><div class="k-modal about" role="dialog" aria-modal="true" aria-labelledby="mab"><div class="ab-logo">${GP_LOGO}<b>GuardsPro</b></div><h2 id="mab">${t('about.title')}</h2>
-  <p>${t('about.desc')}</p><dl class="kv sm"><dt>${t('about.version')}</dt><dd>${esc((S.dev&&S.dev.appVersion)||'1.0.0 (prototype)')}</dd><dt>${t('about.config')}</dt><dd>v${S.kcfg.version}</dd><dt>${t('about.kiosk')}</dt><dd>${esc(LOC.kioskName)} · ${esc(LOC.kiosk)}</dd><dt>${t('lbl.location')}</dt><dd>${esc(LOC.location)}, ${esc(LOC.client)}</dd></dl>
+  <p>${t('about.desc')}</p><dl class="kv sm"><dt>${t('about.version')}</dt><dd>${esc((S.dev&&S.dev.appVersion)||'1.0.0 (prototype)')}</dd><dt>${t('about.config')}</dt><dd>${cfgVer(S.kcfg.version)}</dd><dt>${t('about.kiosk')}</dt><dd>${esc(LOC.kioskName)} · ${esc(LOC.kiosk)}</dd><dt>${t('lbl.location')}</dt><dd>${esc(LOC.location)}, ${esc(LOC.client)}</dd></dl>
   <p class="fhint">© 2026 GuardsPro · ${t('about.support')}</p><div class="acts"><button class="btn btn-p" data-act="closeModal">${t('btn.close')}</button></div></div></div>`,
  startOver:()=>{const p=S.sess.approval==='pending';return `<div class="k-modal-back"><div class="k-modal" role="dialog" aria-modal="true" aria-labelledby="ms"><h2 id="ms">${t(p?'so.cancelTitle':'so.title')}</h2>
   <p>${t(p?'so.cancelBody':'so.body')}</p><div class="acts"><button class="btn btn-s" data-act="closeModal">${t('so.keep')}</button><button class="btn btn-d" data-act="confirmStartOver">${t(p?'so.cancelBtn':'hdr.startOver')}</button></div></div></div>`},
@@ -2834,7 +2851,7 @@ function ago(ts){const s=Math.max(0,Math.round((Date.now()-ts)/1000));if(s<60)re
 function genRegCode(){const code=newKioskCode();S.dev.regCode=code;S.dev.regCodeExp=Date.now()+24*3600*1000;S.dev.regCodeUsed=false;
   log(`Client Portal: registration code ${code} generated for ${LOC.kioskName} (expires in 24 h)`,'warn');audit('Registration code generated',`${LOC.kioskName} · expires in 24 h`);return code}
 function codeFor(k){if(isDev(k))return genRegCode();k.code=newKioskCode();k.exp=Date.now()+24*3600*1000;log(`Client Portal: registration code ${k.code} generated for ${k.name} (expires in 24 h)`,'warn');audit('Registration code generated',`${k.name} · expires in 24 h`);return k.code}
-const PORTAL_TAG='<span class="ptag">Pending confirmation</span>';
+const PORTAL_TAG='';
 function chipS(txt,cls){return `<span class="pchip ${cls}">${txt}</span>`}
 function pnewForm(){const n=S.pnew,site=POST_SITES.find(x=>x.id===n.site);return `<div class="pnew"><h3>Register a kiosk for a post site</h3>
  <p class="pm">Step 1 of 2 · Create the kiosk here. Step 2 · Enter its registration code on the iPad (use <b>Set up iPad</b> to do it on the prototype iPad).</p>
@@ -2998,20 +3015,20 @@ function vmkPage(){const c=vDraft(),dirty=vDirty(),site=S.pscope==='global'?null
    </section>
    <section><h3>Fields collected before visitor type</h3><p class="pm">Used when details come first. Visitor-type rules below add or require more fields afterwards.</p>
     <div class="pfrow">${['email','phone','company','title'].map(f=>`<label>${I18N.en['fld.'+f]} ${sel('baseFields.'+f,c.baseFields[f],RQO)}</label>`).join('')}</div>
-    <h3 style="margin-top:16px">Host notification</h3>${cb('notifyHost',c.notifyHost,'Notify host in the GuardsPro app when the visitor checks in')}${cb('notify.reception',c.notify.reception,'Notify reception (dashboard) at check-in')}${cb('notify.security',c.notify.security,'Notify the security supervisor (app) at check-in')}${cb('notify.checkout',c.notify.checkout,'Notify host and reception at check-out')} ${PORTAL_TAG}</section>
+    <h3 style="margin-top:16px">Host notification</h3>${cb('notify.reception',c.notify.reception,'Notify host and reception at check-in')}${cb('notify.checkout',c.notify.checkout,'Notify host and reception at check-out')} ${PORTAL_TAG}</section>
   </div>
   <section><div class="cfhead"><h3>Visitor types <span class="pm">documents each type must accept are set in Manage Policies below</span></h3>${site?'<span class="pm">Add or delete visitor types under All Post Sites</span>':'<button class="pbtn pri" data-pact="ctnew">+ Add visitor type</button>'}</div><div class="tbl"><table><thead><tr><th>Type</th><th>Enabled</th><th>Photo</th><th>Host approval</th><th>Email</th><th>Mobile</th><th>Company</th><th>Job title</th><th>Vehicle</th><th>Contractor ID</th><th>Badge</th><th>${site?'':'Delete'}</th></tr></thead><tbody>${types}</tbody></table></div>${S.pct&&!site?ctForm():''}</section>
   ${polSection(c,site)}
   <div class="pgrid">
-   <section><h3>Badge</h3>${cb('badge.print',c.badge.print,'Print a badge after check-in')}${cb('badge.email',c.badge.email,'Email the digital badge and visit details to the visitor (the only email sent)')}${cb('badge.notifyStaffOnFail',c.badge.notifyStaffOnFail,'Notify reception when printing fails')}
+   <section><h3>Badge</h3>${cb('badge.print',c.badge.print,'Print a badge after check-in')}${cb('badge.email',c.badge.email,'Email the digital badge and visit details to the visitor (the only email sent)')}${cb('badge.notifyStaffOnFail',c.badge.notifyStaffOnFail,'Notify host when printing fails')}
     <div class="pfrow"><label>Badge valid for ${sel('badge.validHours',c.badge.validHours,[[4,'4 h'],[8,'8 h'],[12,'12 h']])}</label></div>
     </section>
    <section><h3>Session</h3><div class="pfrow">
     <label>Inactivity timeout ${sel('session.timeout',c.session.timeout,[[30,'30 s'],[60,'60 s'],[90,'90 s'],[120,'120 s']])}</label><label>Warning before reset ${sel('session.warn',c.session.warn,[[10,'10 s'],[15,'15 s'],[30,'30 s']])}</label></div>
-    <p class="pm">Durations are provisional ${PORTAL_TAG}</p></section></div>
+    </section></div>
   </div>
  </div></div>
- <div class="gp-foot"><span class="gp-dirty ${dirty?'on':''}">${dirty?'Unsaved changes':'No unsaved changes · version v'+S.pcfg.version}</span>
+ <div class="gp-foot"><span class="gp-dirty ${dirty?'on':''}">${dirty?'Unsaved changes':'No unsaved changes · version '+cfgVer(S.pcfg.version)}</span>
   ${site?'':`<button class="gbtn" data-gp="defaults">Reset to defaults</button>`}<button class="gbtn" data-gp="cancel" ${dirty?'':'disabled'}>Cancel</button><button class="gbtn pri" data-gp="save" ${dirty?'':'disabled'}>Save Changes</button></div>`}
 function gssList(){const q=S.pss.q.trim().toLowerCase(),hit=s=>!q||s.name.toLowerCase().includes(q)||s.id.toLowerCase().includes(q);
  const L=OP_SITES.filter(hit);const g=!q||'all post sites global defaults'.includes(q);
@@ -3062,15 +3079,15 @@ function vScroll(k){const el=document.getElementById('vmk-'+k),sc=document.getEl
 function publishCfg(){try{localStorage.setItem('gpvk_cfg',JSON.stringify({at:Date.now(),pcfg:S.pcfg,ovr:Object.fromEntries(OP_SITES.filter(x=>x.ovr).map(x=>[x.id,x.ovr]))}))}catch(e){}}
 function vSave(){const c=S.pdraft,E=vErrors(c);if(E.length){S.vErr=E;log(`Client Portal: Visitor Manager Kiosk Setting not saved — ${E.length} validation error(s)`,'warn');renderPortal();const sc=document.getElementById('gp-scroll');if(sc)sc.scrollTop=0;return false}
  S.vErr=null;let msg;
- if(S.pscope==='global'){savePortalCfg();msg=`Settings saved · global defaults · version v${S.pcfg.version}`}
+ if(S.pscope==='global'){savePortalCfg();msg=`Settings saved · global defaults · version ${cfgVer(S.pcfg.version)}`}
  else{const site=opSite(S.pscope),before=JSON.stringify(site.ovr||{}),o=cdiff(S.pcfg,c);if(Object.keys(o).length)site.ovr=o;else delete site.ovr;
   S.pcfg.version++;const diff=Object.keys(o).join(', ')||'none';log(`Client Portal: kiosk settings for ${site.name} saved as v${S.pcfg.version} (site overrides: ${diff})`,'ok');
   audit('Configuration changed',`v${S.pcfg.version} · ${site.name} (${site.id}) site settings: ${diff}`);S.pdraft=siteCfg(site.id);syncConfig('save');
-  msg=`Settings saved for ${site.name} · version v${S.pcfg.version}`;void before}
+  msg=`Settings saved for ${site.name} · version ${cfgVer(S.pcfg.version)}`;void before}
  vReset();publishCfg();S.ptoast=msg;clearTimeout(S.ptoastT);S.ptoastT=setTimeout(()=>{S.ptoast=null;renderPortal()},3500);renderPortal();return true}
 
 document.addEventListener('input',e=>{const w=e.target;if(w.dataset&&w.dataset.wel&&S.pdraft){S.pdraft.welcome=w.value;
-  const d=vDirty(),f=document.querySelector('.gp-dirty');if(f){f.classList.toggle('on',d);f.textContent=d?'Unsaved changes':'No unsaved changes · version v'+S.pcfg.version}document.querySelectorAll('[data-gp=save],[data-gp=cancel]').forEach(b=>b.disabled=!d);return}
+  const d=vDirty(),f=document.querySelector('.gp-dirty');if(f){f.classList.toggle('on',d);f.textContent=d?'Unsaved changes':'No unsaved changes · version '+cfgVer(S.pcfg.version)}document.querySelectorAll('[data-gp=save],[data-gp=cancel]').forEach(b=>b.disabled=!d);return}
  if(e.target.id==='gss-q'){S.pss.q=e.target.value;const l=document.getElementById('gss-list');if(l)l.innerHTML=gssList()}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('portal')&&(S.pss.open||S.gpPop||S.pdelc)){S.pss.open=false;S.gpPop=null;S.pdelc=null;renderPortal()}});
 document.addEventListener('click',e=>{const P=document.getElementById('portal');if(!P||!P.contains(e.target))return;
@@ -3100,16 +3117,16 @@ document.addEventListener('change',e=>{if(e.target.dataset&&e.target.dataset.wel
 const POL_MAX=10*1024*1024;
 function polTypesHtml(c,i,p,dis){const T=liveTypes(c);return `<label class="pck"><input type="checkbox" data-polall="${i}" ${p.all?'checked':''} ${dis?'disabled':''}> All visitor types</label>${p.all?'':`<div class="poltypes">${T.map(k=>`<label class="pck"><input type="checkbox" data-polt="${i}:${k}" ${(p.types||[]).includes(k)?'checked':''} ${dis?'disabled':''}> ${esc(tName(c,k))}</label>`).join('')}</div>`}`}
 function polSection(c,site){const P=c.policies||[];const fmtD=d=>new Date(d+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
- return `<section class="polsec"><div class="cfhead"><h3>Manage Policies <span class="pm">documents shown to visitors on the Agreements screen; visitors read, accept and sign them</span></h3>${site?'<span class="pm">Manage policies under All Post Sites</span>':'<button class="pbtn pri" data-gp="poladd">+ Add policy</button>'}</div>
+ return `<section class="polsec"><div class="cfhead"><h3>Manage Policies <span class="pm">documents shown to visitors on the Agreements screen · upload PDF or .txt files up to 10 MB</span></h3>${site?'<span class="pm">Manage policies under All Post Sites</span>':'<button class="pbtn pri" data-gp="poladd">+ Add policy</button>'}</div>
  ${S.polErr?`<p class="perr" role="alert">${esc(S.polErr)}</p>`:''}${S.ppol&&!site?polForm():''}
  <div class="tbl"><table><thead><tr><th>Policy</th><th>Version</th><th>Effective</th><th>Shown to</th><th>Document</th><th>Actions</th></tr></thead><tbody>${P.map((p,i)=>`<tr><td><b>${esc(p.title)}</b>${p.desc?`<div class="pm">${esc(p.desc)}</div>`:''}</td><td>v${esc(p.ver)}</td><td>${fmtD(p.eff)}</td><td>${polTypesHtml(c,i,p,!!site)}</td>
   <td>${p.file?`<span class="polfile">${ic('file',16)} ${esc(p.file.name)}</span>`:'<span class="pm">Sample text (not approved)</span>'}</td>
   <td class="polact"><button class="pbtn sm" data-gp="polprev" data-arg="${i}">Preview</button>${site?'':`<label class="pbtn sm polup">Upload new version<input type="file" accept=".pdf,.txt,application/pdf,text/plain" data-polup="${i}" hidden></label>${p.builtin?'':`<button class="pbtn sm bad picon" data-gp="poldelask" data-arg="${i}" aria-label="Delete policy ${esc(p.title)}" title="Delete"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></button>`}`}</td></tr>`).join('')}</tbody></table></div>
- <p class="pm">Upload PDF or plain-text files up to 10 MB. A new version takes effect today and visitors who accepted an older version must accept again. Uploaded files are kept in this browser session only. Policy wording ${PORTAL_TAG}</p></section>`}
+</section>`}
 function polForm(){const n=S.ppol;return `<div class="pnew cfform"><h3>Add a policy</h3>
  <div class="pnew-g"><label>Policy name<span class="gp-req">*</span><input data-pp="title" maxlength="60" value="${esc(n.title||'')}" placeholder="e.g. Health and Safety Policy"></label>
  <label>Short description<input data-pp="desc" maxlength="100" value="${esc(n.desc||'')}" placeholder="Shown under the name on the kiosk"></label>
- <label>Document<span class="gp-req">*</span><input type="file" data-ppfile="1" accept=".pdf,.txt,application/pdf,text/plain">${n.file?`<span class="pm">${esc(n.file.name)}</span>`:''}</label></div>
+ <label>Document (PDF or .txt, up to 10 MB)<span class="gp-req">*</span><input type="file" data-ppfile="1" accept=".pdf,.txt,application/pdf,text/plain">${n.file?`<span class="pm">${esc(n.file.name)}</span>`:''}</label></div>
  <label class="pck"><input type="checkbox" data-pp="all" ${n.all!==false?'checked':''}> Show to all visitor types (untick to choose types in the table after adding)</label>
  ${n.err?`<p class="perr" role="alert">${esc(n.err)}</p>`:''}<div class="prow"><button class="pbtn" data-gp="polcancel">Cancel</button><button class="pbtn pri" data-gp="polcreate">Add policy</button></div></div>`}
 function readPolicyFile(f,cb){if(!f)return cb('Choose a file to upload.');if(f.size>POL_MAX)return cb('The file is larger than 10 MB.');
@@ -3136,6 +3153,9 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-gp]');if(!
  if(a==='poldelask'){S.pdelPol=+g.dataset.arg;return renderPortal()}
  if(a==='poldelno'){S.pdelPol=null;return renderPortal()}
  if(a==='poldel'){const p=c.policies[S.pdelPol];c.policies.splice(S.pdelPol,1);S.pdelPol=null;log(`Client Portal: policy "${p.title}" removed — save to publish`,'warn');return renderPortal()}},true);
+
+/* one option now covers host and reception at check-in */
+document.addEventListener('change',e=>{const el=e.target;if(el.dataset&&el.dataset.pc==='notify.reception'&&S.pdraft)S.pdraft.notifyHost=el.checked},true);
 /* ===== boot ===== */
 log(`Kiosk ${LOC.kiosk} started — registered to ${LOC.client} › ${LOC.location}; configuration v${S.kcfg.version}. Visitors cannot change this.`);
 audit('Kiosk started',`Configuration v${S.kcfg.version}`);
