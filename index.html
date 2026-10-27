@@ -639,6 +639,8 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 .op-acct.noname{border:0;background:none;padding:0;box-shadow:none}
 .k-modal.sopw{text-align:start}.k-modal.sopw .lgf{margin:18px 0 6px}.k-modal.sopw .acts{margin-top:18px}
 .accept.locked{opacity:.55;cursor:not-allowed}.accept.locked .box{border-style:dashed}
+.kmenu-pop{min-width:280px}.kmenu-pop .km-h{display:flex;gap:8px;align-items:center;padding:10px 16px 4px;font-size:14px;font-weight:700;color:var(--k-muted);text-transform:uppercase;letter-spacing:.04em}.kmenu-pop .km-sep{height:1px;background:var(--k-line);margin:6px 0}.kmenu-pop button span{display:inline-flex;align-items:center;gap:10px}.kmenu-pop .km-out{color:#b0271e}
+.kmenu>.k-hbtn{padding:0 14px;min-width:56px;justify-content:center}.kmenu-pop .km-lang{display:flex;justify-content:space-between;width:100%}.km-cur{color:var(--k-muted);font-size:15px}.km-chev{display:inline-flex;transition:transform .15s}.km-chev.open{transform:rotate(90deg)}.km-sub{background:var(--k-bg,#f4f5fa);border-radius:10px;margin:2px 6px 4px;padding:2px 0}.km-sub button{padding-left:30px}
 </style>
 <style>
 /* ===== simulated GuardsPro Client Portal (matches the production Account Settings layout) ===== */
@@ -1036,6 +1038,14 @@ function netFail(retry){if(S.sim.net==='off'){log('Request not sent — kiosk of
   if(S.sim.net==='err'){log('Server returned an error (simulated). Nothing saved.','err');errorScreen('server',{retry});return true}return false}
 
 /* ---- render ---- */
+/* home screen: one menu button holding language, help and sign out */
+const MENU_IC='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+function kMenu(v){const L=enabledLangs(),showL=!v.noLang&&L.length>1;
+  return `<div class="lang kmenu"><button class="k-hbtn" data-act="menuToggle" aria-haspopup="true" aria-expanded="${!!S.menuOpen}" aria-label="${esc(t('menu.open'))}">${MENU_IC}</button>${S.menuOpen?`<div class="langmenu kmenu-pop" role="menu">
+   ${showL?`<button role="menuitem" class="km-lang" data-act="menuLang" aria-expanded="${!!S.menuLang}"><span>${ic('globe',20)} ${t('a11y.language')}</span><span class="km-cur">${LANGS[S.lang].native} <i class="km-chev ${S.menuLang?'open':''}">${ic('right',18)}</i></span></button>
+   ${S.menuLang?`<div class="km-sub">${L.map(c=>`<button role="menuitemradio" aria-checked="${c===S.lang}" class="${c===S.lang?'on':''}" data-act="lang" data-arg="${c}" lang="${c}"><span>${LANGS[c].native}${c!=='en'?` <small>${LANGS[c].en}</small>`:''}</span>${c===S.lang?ic('check',20,3):''}</button>`).join('')}</div>`:''}`:''}
+   <button role="menuitem" data-act="help"><span>${ic('help',20)} ${t('hdr.help')}</span></button>
+   ${S.op&&S.op.user?`<button role="menuitem" data-act="opSignOut" class="km-out"><span>${ic('logout',20)} ${t('menu.signOut')}</span></button>`:''}</div>`:''}</div>`}
 function langMenu(){const L=enabledLangs();if(L.length<2)return'';const cur=LANGS[S.lang];
   return `<div class="lang"><button class="k-hbtn" data-act="langToggle" aria-haspopup="true" aria-expanded="${S.langOpen}" aria-label="${esc(t('a11y.language'))}">${ic('globe',22)} ${cur.native}</button>${S.langOpen?`<div class="langmenu" role="menu">${L.map(c=>`<button role="menuitemradio" aria-checked="${c===S.lang}" class="${c===S.lang?'on':''}" data-act="lang" data-arg="${c}" lang="${c}"><span>${LANGS[c].native}${c!=='en'?` <small>${LANGS[c].en}</small>`:''}</span>${c===S.lang?ic('check',20):''}</button>`).join('')}</div>`:''}</div>`}
 /* Manage Policies → kiosk: which documents each visitor type reads, and the text or uploaded file shown */
@@ -1055,8 +1065,7 @@ function render(){syncCustomTypes();syncPolicies();syncCustomFields();const def=
   ${v.noHeader?'':`<div class="k-header">${def.admin&&!def.op?`<div class="k-logo">${GP_LOGO}<b>GuardsPro</b></div><div class="k-sep"></div>`:''}
   <div class="k-loc">${def.op?'<b>Visitor Kiosk</b><span>Operator access</span>':`<b>${LOC.client}</b><span>${LOC.location}</span>`}</div>
   <div class="k-hr">${!online()&&!def.admin?`<span class="k-net">${ic('wifiOff',20)} ${t('hdr.offline')}</span>`:''}
-   ${def.admin||v.noLang||inSession?'':langMenu()}
-   ${def.admin||inSession?'':`<button class="k-hbtn" data-act="help">${ic('help',22)} ${t('hdr.help')}</button>`}
+   ${def.admin||inSession?'':kMenu(v)}
    ${showStart?`<button class="k-hbtn" data-act="startOver">${ic('refresh',20)} ${t('hdr.startOver')}</button>`:''}</div></div>`}`;
   let prog='';if(v.step){const st=steps(v.step);let n=0;prog=`<div class="k-progress" aria-label="${esc(t('a11y.progress'))}">${st.map((x,i)=>{if(x.st!=='skip')n++;
     return `<div class="ps ${x.st}" ${x.st==='cur'?'aria-current="step"':''}><span class="dot">${x.st==='done'?ic('check',18,3):x.st==='skip'?'–':n}</span><span class="lbl" ${x.st==='skip'?`title="${esc(t('step.notNeeded'))}"`:''}>${x.l}</span>${i<st.length-1?'<span class="bar"></span>':''}</div>`}).join('')}</div>`}
@@ -1264,6 +1273,8 @@ Object.assign(I18N.en,{"agr.updated": "Updated since your last visit · tap to r
 Object.assign(I18N.en,{"det.pickFirst": "Choose an option above to continue. The details we need depend on your choice."});
 
 Object.assign(I18N.en,{"badge.staffNotified": "Your host has been told."});
+
+Object.assign(I18N.en,{"menu.title": "Menu", "menu.open": "Open menu", "menu.signOut": "Sign out"});
 /* ===== Español — prototype translation, not professionally reviewed ===== */
 I18N.es={
 'a11y.language':'Idioma','a11y.progress':'Progreso del registro',
@@ -1426,6 +1437,8 @@ Object.assign(I18N.es,{"agr.updated": "Actualizado desde su última visita · to
 Object.assign(I18N.es,{"det.pickFirst": "Elija una opción arriba para continuar. Los datos que necesitamos dependen de su elección."});
 
 Object.assign(I18N.es,{"badge.staffNotified": "Se ha avisado a su anfitrión."});
+
+Object.assign(I18N.es,{"menu.title": "Menú", "menu.open": "Abrir menú", "menu.signOut": "Cerrar sesión"});
 /* ===== हिन्दी — prototype translation, not professionally reviewed ===== */
 I18N.hi={
 'a11y.language':'भाषा','a11y.progress':'पंजीकरण की प्रगति',
@@ -1588,6 +1601,8 @@ Object.assign(I18N.hi,{"agr.updated": "आपकी पिछली यात्
 Object.assign(I18N.hi,{"det.pickFirst": "जारी रखने के लिए ऊपर एक विकल्प चुनें। आवश्यक विवरण आपके चुनाव पर निर्भर करते हैं।"});
 
 Object.assign(I18N.hi,{"badge.staffNotified": "आपके मेज़बान को सूचित कर दिया गया है।"});
+
+Object.assign(I18N.hi,{"menu.title": "मेनू", "menu.open": "मेनू खोलें", "menu.signOut": "साइन आउट"});
 /* ===== Français — prototype translation, not professionally reviewed ===== */
 I18N.fr={
 'a11y.language':'Langue','a11y.progress':"Progression de l'enregistrement",
@@ -1752,6 +1767,8 @@ Object.assign(I18N.fr,{"agr.updated": "Mis à jour depuis votre dernière visite
 Object.assign(I18N.fr,{"det.pickFirst": "Choisissez une option ci-dessus pour continuer. Les informations demandées dépendent de votre choix."});
 
 Object.assign(I18N.fr,{"badge.staffNotified": "Votre hôte a été prévenu."});
+
+Object.assign(I18N.fr,{"menu.title": "Menu", "menu.open": "Ouvrir le menu", "menu.signOut": "Se déconnecter"});
 /* ===== v0.3 screens: entry, invitation, returning, registration (all visitor text via t()) ===== */
 const A={};const SCREENS={};
 const tab=(cur,val,label,icn,act)=>`<button class="chip ${cur===val?'on':''}" data-act="${act}" data-arg="${val}" aria-pressed="${cur===val}">${ic(icn,20)} ${label}</button>`;
@@ -1774,8 +1791,10 @@ A.ddToggle=id=>{S.ddOpen=S.ddOpen===id?null:id;rerender()};
 A.ddPick=arg=>{const i=arg.indexOf('::'),p=arg.slice(0,i),v=arg.slice(i+2);setPath(p,v);const seg=p.split('.');delete S.sess.errs[seg[seg.length-1]];S.ddOpen=null;rerender()};
 A.checkout=()=>{S.sess=newSess();S.sess.src='checkout';go('coId')};
 A.langToggle=()=>{S.langOpen=!S.langOpen;render()};
+A.menuToggle=()=>{S.menuOpen=!S.menuOpen;S.menuLang=false;render()};
+A.menuLang=()=>{S.menuLang=!S.menuLang;render()};
 /* SRD §37: language applies to the session; entered data and errors are kept because they are stored as values and keys */
-A.lang=c=>{S.langOpen=false;if(!enabledLangs().includes(c))return render();const was=S.lang;S.lang=c;if(was!==c)log(`Language changed: ${LANGS[was].en} → ${LANGS[c].en} (session data kept)`);rerender()};
+A.lang=c=>{S.langOpen=false;S.menuOpen=false;if(!enabledLangs().includes(c))return render();const was=S.lang;S.lang=c;if(was!==c)log(`Language changed: ${LANGS[was].en} → ${LANGS[c].en} (session data kept)`);rerender()};
 
 /* S02 Method selection */
 SCREENS.method={id:'S02',name:'Check-in method selection',view(){const m=S.kcfg.methods;
@@ -2293,8 +2312,8 @@ const MODALS={
   <button class="accept ${rd?'':'locked'}" id="mdocacc" data-act="docAgree" data-arg="${m.id}" aria-pressed="${acc}" ${rd?'':'disabled aria-describedby="mdochint"'}><span class="box ${acc?'on':''}">${acc?ic('check',24,3):''}</span><span>${t('doc.accept',{title})}<span id="mdochint" class="fhint" style="display:${rd?'none':'block'}">${t('doc.scroll')}</span></span></button>
   <div class="acts"><button class="btn btn-p" data-act="docDone">${acc?t('agr.done'):t('btn.close')}</button></div></div></div>`},
  lgHelp:()=>`<div class="k-modal-back"><div class="k-modal lghelp" role="dialog" aria-modal="true" aria-labelledby="mlh"><h2 id="mlh">Need help signing in?</h2>
-  <ol><li>Check that you're using the email address of your GuardsPro Client Portal account.</li><li>Passwords are case-sensitive. Tap the eye icon to check what you typed.</li><li>Forgotten your password? Use <b>Forgot password?</b> to get reset instructions.</li><li>Still stuck, or your account is locked? Contact your GuardsPro administrator.</li></ol>
-  <p class="fhint">Support contact details are configured per client. Pending confirmation.</p><div class="acts"><button class="btn btn-s" data-act="lgHelpForgot">Reset my password</button><button class="btn btn-p" data-act="closeModal">Close</button></div></div></div>`,
+  <ol><li>Check that you're using the email address of your GuardsPro Client Portal account.</li><li>Passwords are case-sensitive. Tap the eye icon to check what you typed.</li><li>Forgotten your password, still stuck, or your account is locked? Contact your GuardsPro administrator.</li></ol>
+  <p class="fhint">Support contact details are configured per client. Pending confirmation.</p><div class="acts"><button class="btn btn-p" data-act="closeModal">Close</button></div></div></div>`,
  help:()=>`<div class="k-modal-back"><div class="k-modal" role="dialog" aria-modal="true" aria-labelledby="mh"><div class="big-ic info sm">${ic('help',40)}</div><h2 id="mh">${t('help.title')}</h2>
   <p>${t('help.body')}</p><button class="helpabout" data-act="about">${ic('info',22)}<span><b>${t('about.btn')}</b><small>${t('about.link',{v:esc(((S.dev&&S.dev.appVersion)||'1.0.0').split(' ')[0])})}</small></span>${ic('right',22)}</button><div class="acts"><button class="btn btn-p" data-act="closeModal">${t('btn.close')}</button></div></div></div>`,
  about:()=>`<div class="k-modal-back"><div class="k-modal about" role="dialog" aria-modal="true" aria-labelledby="mab"><div class="ab-logo">${GP_LOGO}<b>GuardsPro</b></div><h2 id="mab">${t('about.title')}</h2>
@@ -2305,7 +2324,7 @@ const MODALS={
  timeout:()=>`<div class="k-modal-back"><div class="k-modal" role="alertdialog" aria-modal="true" aria-labelledby="mt"><h2 id="mt">${t('to.title')}</h2><div class="count"><span id="tcount">${Math.max(1,S.kcfg.session.timeout-S.idle)}</span>s</div>
   <p>${t('to.body')}</p><div class="acts"><button class="btn btn-s" data-act="confirmStartOver">${t('hdr.startOver')}</button><button class="btn btn-p" data-act="continueSession">${t('to.continue')}</button></div></div></div>`};
 A.lgHelpForgot=()=>{S.modal=null;go('forgot')};
-A.help=()=>{S.modal={kind:'help'};render()};
+A.help=()=>{S.menuOpen=false;S.modal={kind:'help'};render()};
 A.about=()=>{S.modal={kind:'about'};render()};
 A.closeModal=()=>{S.modal=null;render()};
 A.startOver=()=>{if(S.sess.dirty||S.sess.approval==='pending'||S.sess.verified||S.sess.src==='invite'){S.modal={kind:'startOver'};return render()}endSession()};
@@ -2460,8 +2479,7 @@ SCREENS.login={id:'L01',name:'Operator sign in',admin:true,op:true,view(){const 
    ${g.err?`<div class="lg-alert" role="alert">${ic('alert',20)}<span>${te(g.err)}</span></div>`:''}
    ${lgField('lg.u','Email address',{val:g.u,type:'email',ph:'name@company.com',err:g.uErr,auto:'username',dis:g.busy})}
    ${lgField('lg.p','Password',{val:g.p,type:g.show?'text':'password',ph:'Enter your password',err:g.pErr,auto:'current-password',dis:g.busy,ekh:'go',extra:`<button type="button" class="lg-show" data-act="lgShow" aria-pressed="${g.show}" aria-label="${g.show?'Hide password':'Show password'}" ${g.busy?'disabled':''}>${g.show?'Hide':'Show'}</button>`})}
-   <button class="lg-btn op-submit" data-act="opSignIn" ${g.busy?'disabled aria-busy="true"':''}>${g.busy?'<span class="spin sm inv"></span> Signing In…':'Sign In'}</button>
-   <button type="button" class="lg-link" data-act="go" data-arg="forgot" ${g.busy?'disabled':''}>Forgot password?</button></div>
+   <button class="lg-btn op-submit" data-act="opSignIn" ${g.busy?'disabled aria-busy="true"':''}>${g.busy?'<span class="spin sm inv"></span> Signing In…':'Sign In'}</button></div>
    <p class="lg-foot">GuardsPro Visitor Kiosk · Version ${ver} · Need help? Contact your GuardsPro administrator.</p></section></div>`}}};
 SCREENS.forgot={id:'L02',name:'Reset password',admin:true,op:true,view(){const f=S.sess.fp;
  return{narrow:true,noStart:true,body:`<h1 class="k-title">Reset your password</h1><p class="k-sub">Enter the email address you use to sign in to Client Portal. We'll send password reset instructions to the email address registered with GuardsPro.</p>
@@ -2517,7 +2535,7 @@ A.opLaunch=()=>{const o=S.op,s=opSite(o.sel);if(!s||!o.sites.includes(s.id)){log
  if(typeof renderPortal==='function')renderPortal();endSession()};
 function opSignOut(){const was=S.op.name;S.op={user:null,name:'',sites:[],state:'idle',sel:null,site:null,q:'',tries:0,confirm:false,dlg:false};if(was){log(`Operator ${was} signed out`,'warn');audit('Operator sign-out',was)}endSession()}
 /* signing out of the kiosk needs the signed-in operator's password */
-A.opSignOut=()=>{S.sess.soPw='';S.sess.soErr=null;S.modal={kind:'soPw'};S.focus='f-soPw';render()};
+A.opSignOut=()=>{S.menuOpen=false;S.sess.soPw='';S.sess.soErr=null;S.modal={kind:'soPw'};S.focus='f-soPw';render()};
 A.soPwShow=()=>{S.sess.soShow=!S.sess.soShow;S.focus='f-soPw';render()};
 A.soPwConfirm=()=>{const s=S.sess,pw=(s.soPw||'').replace(/^["'\s]+|["'\s]+$/g,''),u=OP_USERS[S.op.user]||{},ok=pw&&pw===(u.pw||OP_DEMO_PW);
   if(!pw){s.soErr='Enter your password to sign out.';S.focus='f-soPw';return render()}
