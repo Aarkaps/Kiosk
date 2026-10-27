@@ -201,6 +201,7 @@ button{font-family:inherit;cursor:pointer}
 .swatch{display:inline-block;width:22px;height:22px;border-radius:6px;vertical-align:middle}
 .pcard .tbl table{min-width:760px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.demoacc ul{margin:6px 0 0;padding-left:18px}.demoacc li{margin:3px 0}
 </style></head><body class="split-both">
 <style>
 /* ===== Kiosk device UI (1366×1024 logical canvas) ===== */
@@ -763,7 +764,7 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
     </div>
     <aside class="side">
       <div class="card"><h3>Flow map</h3><p class="hint">Every stage and screen, start to end. <b>Click any screen to open it</b> with sample data. <b>Blue</b> = running now, <b>green</b> = done in this session.</p><div class="flowmap" id="flowmap"></div></div>
-      <div class="card"><h3>Kiosk operator <span class="demo-tag">DEMO</span></h3><div id="oppanel"></div></div>
+      <div class="card"><h3>Kiosk operator <span class="demo-tag">DEMO</span></h3><div id="oppanel"></div><div class="hint demoacc" style="margin-top:10px"><b>Demo accounts</b> · password <code>Demo@1234</code><ul><li><code>alex.morgan@northstar.example</code> · all 51 Post Sites</li><li><code>sam.taylor@northstar.example</code> · loading fails once, then 2 Post Sites</li><li><code>jordan.lee@northstar.example</code> · no Post Sites assigned</li></ul></div></div>
       <div class="card"><h3>Start a journey</h3><p class="hint">Each button resets the kiosk and starts at that journey's entry point.</p><div class="jgrid" id="journeys"></div></div>
       <div class="card" style="display:none" aria-hidden="true"><h3>Simulate <span class="demo-tag">DEMO</span></h3><p class="hint" id="ctx-hint">Outcomes for the current screen.</p><div class="btnrow" id="ctx"></div></div>
       <div class="card" style="display:none" aria-hidden="true"><h3>Emails &amp; notifications <span id="outbox-n"></span> <span class="demo-tag">MOCK</span></h3><p class="hint">The visitor gets the badge by email. Host, reception and security get notifications only. Click a message to preview it.</p><ul class="outbox" id="outbox"></ul></div>
