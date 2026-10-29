@@ -2448,7 +2448,7 @@ function applyPendingConfig(){const d=S.dev;if(!d.pending)return;S.kcfg=d.pendin
   log(`Configuration v${S.kcfg.version} applied on kiosk`,'ok');audit('Configuration sync',`v${S.kcfg.version} applied`);renderPortal()}
 /* heartbeat */
 setInterval(()=>{if(S.dev.status==='active'&&online()){S.dev.lastComm=Date.now();if(S.dev.sync==='pending')syncConfig('retry')}if(S.ptab==='kiosks'&&!S.pnew&&document.getElementById('v-portal')&&!document.getElementById('v-portal').hidden)renderPortal()},5000);
-/* ===== Operator sign-in and Post Site selection (L01–L03). Operator screens are English, like the other administrator screens.
+/* ===== Operator sign-in and Post Site selection (L01–L02). Operator screens are English, like the other administrator screens.
    Authentication is SIMULATED with demo accounts; the real app must authenticate and authorise on the GuardsPro backend. ===== */
 const OP_SITES=[
  {id:'NBC-01',code:'MR',name:'Main Reception',address:'100 Example Street'},
@@ -2489,13 +2489,13 @@ SCREENS.login={id:'L01',name:'Operator sign in',admin:true,op:true,view(){const 
    ${lgField('lg.p','Password',{val:g.p,type:g.show?'text':'password',ph:'Enter your password',err:g.pErr,auto:'current-password',dis:g.busy,ekh:'go',extra:`<button type="button" class="lg-show" data-act="lgShow" aria-pressed="${g.show}" aria-label="${g.show?'Hide password':'Show password'}" ${g.busy?'disabled':''}>${g.show?'Hide':'Show'}</button>`})}
    <button class="lg-btn op-submit" data-act="opSignIn" ${g.busy?'disabled aria-busy="true"':''}>${g.busy?'<span class="spin sm inv"></span> Signing In…':'Sign In'}</button></div>
    <p class="lg-foot">GuardsPro Visitor Kiosk · Version ${ver} · Need help? Contact your GuardsPro administrator.</p></section></div>`}}};
-SCREENS.forgot={id:'L02',name:'Reset password',admin:true,op:true,view(){const f=S.sess.fp;
+SCREENS.forgot={id:'L00',name:'Reset password',admin:true,op:true,view(){const f=S.sess.fp;
  return{narrow:true,noStart:true,body:`<h1 class="k-title">Reset your password</h1><p class="k-sub">Enter the email address you use to sign in to Client Portal. We'll send password reset instructions to the email address registered with GuardsPro.</p>
   ${f.sent?`<div class="notice ok" role="status">${ic('check',24)}<div><b>Check your email.</b><br>If an account matches that email address, reset instructions have been sent. The link expires in 30 minutes.</div></div>`
   :`${f.err?`<div class="notice err" role="alert">${ic('alert',24)}<div>${te(f.err)}</div></div>`:''}${fieldHtml('fp.u','Email address',{val:f.u,req:true,ph:'Enter your email address',err:f.uErr})}`}`,
   footer:{back:{label:'Back to Sign In',act:'fpBack'},primary:f.sent?{label:'Back to Sign In',act:'fpBack',icon:false}:{label:f.busy?'Sending…':'Send reset instructions',act:'fpSend',busy:f.busy,disabled:f.busy}}}}};
 function siteMatch(s,q){return !q||(s.name+' '+LOC.client+' '+s.id+' '+s.address).toLowerCase().includes(q)}
-SCREENS.sites={id:'L03',name:'Select a Post Site',admin:true,op:true,view(){const o=S.op,mine=o.sites.map(opSite).filter(Boolean),sel=opSite(o.sel);
+SCREENS.sites={id:'L02',name:'Select a Post Site',admin:true,op:true,view(){const o=S.op,mine=o.sites.map(opSite).filter(Boolean),sel=opSite(o.sel);
  const acct=`<div class="op-acct noname"><button class="btn btn-s" data-act="opSignOut">${ic('logout',22)} Sign Out</button></div>`;
  let main;
  if(o.state==='loading')main=`<div class="center-state op-state"><span class="spin"></span><p class="k-sub">Loading your Post Sites…</p></div>`;
@@ -2693,7 +2693,7 @@ document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{sho
 setInterval(()=>{const st=scr.querySelector('.k-status span');if(st)st.textContent=fmtTime(nowMin())},15000);
 /* ---------- Journey flow: live map + end-to-end walkthrough player (demo panel, English) ---------- */
 const PHASES=[
- ['signin','Sign in & Post Site',['login','forgot','sites'],''],
+ ['signin','Sign in & Post Site',['login','sites'],''],
  ['welcome','Welcome',['home'],'§5, §37'],
  ['method','Check-in method',['method'],'§6'],
  ['identify','Identify visitor',['qr','lookup','inviteConfirm','returningId','returningConfirm'],'§7–9, §13–14'],
@@ -2833,7 +2833,7 @@ async function jumpTo(target){const tok=++FL.tok;FL.play=false;FL.msg='';
  direct();FL.i=0;FL.done=false;
  switch(target){
   case'login':opSignOut();break;
-  case'forgot':opSignOut();go('forgot');break;
+
   case'sites':S.op.site=null;S.op.sel=kioskSiteId();endSession();break;
   case'outOfService':S.dev.status='deactivated';audit('Kiosk deactivated',LOC.kiosk+' (flow map)');renderPortal();endSession();FL.msg='Kiosk shown as deactivated. Click Welcome in the flow map to bring it back into service.';break;
   case'home':endSession();break;
